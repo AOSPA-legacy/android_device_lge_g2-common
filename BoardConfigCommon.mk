@@ -116,40 +116,6 @@ TARGET_NO_RPC := true
 
 BOARD_CHARGER_ENABLE_SUSPEND := true
 
-BOARD_HARDWARE_CLASS := device/lge/g2-common/cmhw/
-
-BOARD_SEPOLICY_DIRS += \
-        device/lge/g2-common/sepolicy
-
-BOARD_SEPOLICY_UNION += \
-	file_contexts \
-	property_contexts \
-	te_macros \
-	bridge.te \
-	camera.te \
-	conn_init.te \
-	device.te \
-	dhcp.te \
-	domain.te \
-	drmserver.te \
-	file.te \
-	kickstart.te \
-	init.te \
-	mediaserver.te \
-	mpdecision.te \
-	netmgrd.te \
-	property.te \
-	qmux.te \
-	rild.te \
-	rmt.te \
-	sensors.te \
-	surfaceflinger.te \
-	system.te \
-	tee.te \
-	thermald.te \
-	ueventd.te \
-	wpa_supplicant.te
-
 BOARD_NFC_HAL_SUFFIX := g2
 
 BOARD_RIL_CLASS := ../../../device/lge/g2-common/ril/
@@ -157,3 +123,12 @@ TARGET_RELEASETOOLS_EXTENSIONS := device/lge/g2-common/releasetools
 
 COMMON_GLOBAL_CFLAGS += -DBOARD_CHARGING_CMDLINE_NAME='"androidboot.mode"' -DBOARD_CHARGING_CMDLINE_VALUE='"chargerlogo"'
 BOARD_USES_QC_TIME_SERVICES := true
+
+BOARD_SEPOLICY_DIRS := \
+       device/lge/g2-common/sepolicy
+
+# The list below is order dependent
+BOARD_SEPOLICY_UNION := \
+       device.te \
+       app.te \
+       file_contexts
