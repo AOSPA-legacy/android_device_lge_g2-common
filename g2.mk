@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-## overlays
+## common g2 overlays
 DEVICE_PACKAGE_OVERLAYS := $(LOCAL_PATH)/overlay
 
 # This device is xhdpi.  However the platform doesn't
