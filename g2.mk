@@ -210,6 +210,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.qc.sensors.wl_dis=true
 
+# Setup custom emergency number list based on the MCC. This is needed by RIL
+PRODUCT_PROPERTY_OVERRIDES += \
+        persist.radio.custom_ecc=1
+
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 	persist.sys.usb.config=mtp
 
