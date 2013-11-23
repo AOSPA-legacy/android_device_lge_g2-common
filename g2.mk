@@ -119,6 +119,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.telephony.call_ring.multiple=0
 
+# Read value of network mode from NV
+PRODUCT_PROPERTY_OVERRIDES += \
+	persist.radio.mode_pref_nv10=1
+
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.telephony.ril.v3=qcomdsds
 
