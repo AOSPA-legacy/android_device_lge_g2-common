@@ -131,6 +131,12 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 	persist.radio.snapshot_enabled=1 \
 	persist.radio.snapshot_timer=2
 
+# Request modem to send PLMN name always irrespective
+# of display condition in EFSPN.
+# RIL uses this property.
+PRODUCT_PROPERTY_OVERRIDES += \
+	persist.radio.always_send_plmn=true
+
 #Upto 3 layers can go through overlays
 PRODUCT_PROPERTY_OVERRIDES += persist.hwc.mdpcomp.enable=true
 

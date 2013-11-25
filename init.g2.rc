@@ -190,6 +190,7 @@ on post-fs-data
     #symlink /data/misc/wifi/wpa_supplicant /data/system/wpa_supplicant
 
     #Create directory used by sensor subsystem(dsps)
+    mkdir /data/system 0755 system system
     mkdir /data/system/sensors
     chmod 665 /data/system/sensors
     write /data/system/sensors/settings 1
