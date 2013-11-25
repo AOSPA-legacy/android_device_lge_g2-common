@@ -238,6 +238,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
         $(LOCAL_PATH)/configs/bcmdhd.cal:system/etc/wifi/bcmdhd.cal
 
+# Input resampling configuration
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.input.noresample=1
+
 # This hw ships locked, work around it with loki
 PRODUCT_PACKAGES += \
         loki.sh \
