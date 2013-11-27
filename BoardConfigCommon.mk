@@ -125,6 +125,8 @@ TARGET_RELEASETOOLS_EXTENSIONS := device/lge/g2-common/releasetools
 COMMON_GLOBAL_CFLAGS += -DBOARD_CHARGING_CMDLINE_NAME='"androidboot.mode"' -DBOARD_CHARGING_CMDLINE_VALUE='"chargerlogo"'
 BOARD_USES_QC_TIME_SERVICES := true
 
+BOARD_HARDWARE_CLASS := device/lge/g2-common/cmhw/
+
 BOARD_SEPOLICY_DIRS := \
        device/lge/g2-common/sepolicy
 
