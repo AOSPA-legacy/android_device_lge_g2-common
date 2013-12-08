@@ -131,6 +131,9 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 	persist.radio.snapshot_enabled=1 \
 	persist.radio.snapshot_timer=2
 
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+	persist.radio.use_cc_names=true
+
 # Request modem to send PLMN name always irrespective
 # of display condition in EFSPN.
 # RIL uses this property.
