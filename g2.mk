@@ -34,7 +34,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf \
     $(LOCAL_PATH)/configs/snd_soc_msm_Taiko:system/etc/snd_soc_msm/snd_soc_msm_Taiko \
     $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
-    $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml
+    $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
+    $(LOCAL_PATH)/configs/mixer_paths.xml:system/etc/mixer_paths.xml
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermald.conf:system/etc/thermald.conf \
@@ -81,8 +82,6 @@ PRODUCT_PACKAGES += \
 
 # NFC packages
 PRODUCT_PACKAGES += \
-    nfc_nci.g2 \
-    NfcNci \
     Tag \
     com.android.nfc_extras
 
@@ -107,8 +106,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Audio Configuration
 PRODUCT_PROPERTY_OVERRIDES += \
-	persist.audio.handset.mic=digital \
-	persist.audio.fluence.mode=endfire \
+	persist.audio.fluence.voicecall=true \
+	persist.audio.dualmic.config=endfire \
 	af.resampler.quality=4
 
 # Do not power down SIM card when modem is sent to Low Power Mode.
@@ -124,6 +123,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	persist.radio.mode_pref_nv10=1
 
 PRODUCT_PROPERTY_OVERRIDES += \
+        ro.telephony.ril_class=LgeLteRIL \
 	ro.telephony.ril.v3=qcomdsds
 
 # update 1x signal strength after 2s
@@ -179,7 +179,7 @@ PRODUCT_PACKAGES += \
 	camera.g2
 
 PRODUCT_PACKAGES += \
-	audio_policy.msm8974 \
+	audio_policy.default \
 	audio.primary.msm8974 \
 	audio.a2dp.default \
 	audio.usb.default \
@@ -257,3 +257,5 @@ $(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk
 # Disregard the firmware, go straight for the confs...
 #$(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4335/device-bcm.mk)
 $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/config/config-bcm.mk)
+
+$(call inherit-product-if-exists, hardware/qcom/msm8x74/msm8x74.mk)
