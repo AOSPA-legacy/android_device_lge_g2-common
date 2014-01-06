@@ -130,8 +130,11 @@ BOARD_SEPOLICY_UNION := \
        app.te \
        file_contexts
 
+HAVE_ADRENO_SOURCE:= false
+
 # QCOM Renderscript
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
+TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
 
 TARGET_PROVIDES_LIBLIGHT := true
 
