@@ -251,6 +251,9 @@ PRODUCT_PACKAGES += \
         loki_patch \
         loki_flash
 
+PRODUCT_PROPERTY_OVERRIDES += \
+	mm.enable.smoothstreaming=true
+
 $(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk)
 #$(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
 
