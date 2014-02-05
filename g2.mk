@@ -262,6 +262,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
 	mm.enable.smoothstreaming=true
 
+# QC Perf
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.vendor.extension_library=/vendor/lib/libqc-opt.so
+
 $(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk)
 #$(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
 
