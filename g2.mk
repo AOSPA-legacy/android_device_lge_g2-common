@@ -37,8 +37,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/mixer_paths.xml:system/etc/mixer_paths.xml
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/thermald.conf:system/etc/thermald.conf \
-    $(LOCAL_PATH)/configs/thermal-engine.conf:system/etc/thermal-engine.conf
+    $(LOCAL_PATH)/configs/thermald-8974.conf:system/etc/thermald-8974.conf \
+    $(LOCAL_PATH)/configs/thermal-engine-8974.conf:system/etc/thermal-engine-8974.conf \
+    $(LOCAL_PATH)/configs/thermal-engine-8974-default.conf:system/etc/thermal-engine-8974-default.conf
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/touch_dev.idc:system/usr/idc/touch_dev.idc
@@ -64,6 +65,9 @@ PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml \
 	frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
 	frameworks/native/data/etc/android.hardware.telephony.cdma.xml:system/etc/permissions/android.hardware.telephony.cdma.xml
+
+PRODUCT_PROPERTY_OVERRIDES += \
+	qcom.thermal=thermal-engine
 
 # GPS configuration
 PRODUCT_COPY_FILES += \
