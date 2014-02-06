@@ -236,10 +236,12 @@ on post-fs-data
     write /sys/module/pm_8x60/modes/cpu1/retention/idle_enabled 0
     write /sys/module/pm_8x60/modes/cpu2/retention/idle_enabled 0
     write /sys/module/pm_8x60/modes/cpu3/retention/idle_enabled 0
+
     write /sys/module/msm_thermal/core_control/enabled 0
     write /sys/devices/system/cpu/cpu1/online 1
     write /sys/devices/system/cpu/cpu2/online 1
     write /sys/devices/system/cpu/cpu3/online 1
+
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "ondemand"
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor "ondemand"
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor "ondemand"
@@ -248,8 +250,8 @@ on post-fs-data
     write /sys/devices/system/cpu/cpufreq/ondemand/up_threshold 90
     write /sys/devices/system/cpu/cpufreq/ondemand/io_is_busy 1
     write /sys/devices/system/cpu/cpufreq/ondemand/sampling_down_factor 4
-    write /sys/devices/system/cpu/cpufreq/ondemand/down_differential 10
-    write /sys/devices/system/cpu/cpufreq/ondemand/up_threshold_multi_core 70
+    write /sys/devices/system/cpu/cpufreq/ondemand/down_differential 3
+    write /sys/devices/system/cpu/cpufreq/ondemand/up_threshold_multi_core 80
     write /sys/devices/system/cpu/cpufreq/ondemand/down_differential_multi_core 3
     write /sys/devices/system/cpu/cpufreq/ondemand/optimal_freq 960000
     write /sys/devices/system/cpu/cpufreq/ondemand/sync_freq 960000
@@ -258,13 +260,21 @@ on post-fs-data
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq 300000
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq 300000
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq 300000
+    chown system /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+    chown system /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
     write /sys/devices/system/cpu/cpufreq/ondemand/middle_grid_step 7
     write /sys/devices/system/cpu/cpufreq/ondemand/middle_grid_load 40
     write /sys/devices/system/cpu/cpufreq/ondemand/high_grid_step 14
     write /sys/devices/system/cpu/cpufreq/ondemand/high_grid_load 50
+    write /sys/module/msm_thermal/core_control/enabled 1
     chown root system /sys/devices/system/cpu/mfreq
     chmod 0220 /sys/devices/system/cpu/mfreq
-    write /sys/module/msm_thermal/core_control/enabled 1
+    chown root.system /sys/devices/system/cpu/cpu1/online
+    chown root.system /sys/devices/system/cpu/cpu2/online
+    chown root.system /sys/devices/system/cpu/cpu3/online
+    chmod 664 /sys/devices/system/cpu/cpu1/online
+    chmod 664 /sys/devices/system/cpu/cpu2/online
+    chmod 664 /sys/devices/system/cpu/cpu3/online
     write /dev/cpuctl/apps/cpu.notify_on_migrate 1
 
     write /sys/devices/virtual/input/lge_touch/touch_gesture 1
