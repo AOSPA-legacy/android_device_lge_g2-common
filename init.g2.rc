@@ -146,6 +146,10 @@ on boot
     chown bluetooth bluetooth /proc/bluetooth/sleep/lpm
     chown bluetooth bluetooth /proc/bluetooth/sleep/btwrite
 
+    # vibrator
+    chown system system /sys/class/timed_output/vibrator/amp
+    chmod 0660 /sys/class/timed_output/vibrator/amp
+
 # lights perms
     chown system system /sys/class/leds/red/brightness
     chown system system /sys/class/leds/green/brightness
