@@ -17,29 +17,16 @@
 <!-- Phone app resources that may need to be customized
      for different hardware or product builds. -->
 <resources>
-    <!-- Determine whether calls to mute the microphone in PhoneUtils
-         are routed through the android.media.AudioManager class (true) or through
-         the com.android.internal.telephony.Phone interface (false). -->
-    <bool name="send_mic_mute_to_AudioManager">true</bool>
-    <!-- Flag indicating if the tty is enabled -->
-    <bool name="tty_enabled">true</bool>
     <!-- Configure certain GsmUmtsOptions to be available or not. The
          default values are in Phone/res/values/config.xml and maybe overridden
          in operator specific resource directories or device specific overlays. -->
-    <bool name="config_apn_expand" translatable="false">false</bool>
+    <bool name="config_apn_expand" translatable="false">true</bool>
     <!-- Show enabled lte option for lte device -->
     <bool name="config_enabled_lte" translatable="false">true</bool>
     <!-- Show cdma auto network mode in (glabal) roaming -->
     <bool name="config_show_cdma" translatable="false">true</bool>
     <!-- CDMA activation goes through HFA [DO NOT TRANSLATE] -->
     <bool name="config_use_hfa_for_provisioning" translatable="false">true</bool>
-    <!-- Display carrier settings -->
-    <bool name="config_carrier_settings_enable">false</bool>
-    <!-- carrier settings menu -->
-    <string name="carrier_settings" translatable="false">com.lge.update</string>
-    <string name="carrier_settings_menu" translatable="false">com.lge.update.SprintUpdateSetting</string>
     <!-- Flag indicating if the phone is a world phone -->
     <bool name="world_phone">true</bool>
-    <!-- Sprint Message Wait Indicator Quirk -->
-    <bool name="sprint_mwi_quirk">true</bool>
 </resources>
