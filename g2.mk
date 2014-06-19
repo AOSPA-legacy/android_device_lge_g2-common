@@ -246,7 +246,7 @@ PRODUCT_PACKAGES += \
 # This hw ships locked, work around it with loki
 PRODUCT_PACKAGES += \
         loki.sh \
-        loki_tool \
+        loki_tool_static_g2 \
         recovery-transform.sh
 
 # QC Perf
