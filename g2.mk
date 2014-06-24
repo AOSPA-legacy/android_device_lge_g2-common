@@ -226,7 +226,28 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 	rild.libpath=/vendor/lib/libril-qc-qmi-1.so
 
 PRODUCT_PROPERTY_OVERRIDES += \
-	drm.service.enabled=true
+
+    drm.service.enabled=true \
+    ro.loki_enabled=1 \
+
+# This hw ships locked, work around it with loki
+PRODUCT_PACKAGES += \
+    loki.sh \
+    loki_patch \
+    loki_flash \
+    loki_unpatch
+
+# screen detecting to prevent white lines
+PRODUCT_COPY_FILES += \
+    device/lge/g2-common/releasetools/loki_tool:system/bin/loki_tool \
+    device/lge/g2-common/releasetools/mkbootimg:system/bin/mkbootimg \
+    device/lge/g2-common/releasetools/unpackbootimg:system/bin/unpackbootimg \
+    device/lge/g2-common/releasetools/bootimg.sh:system/bin/bootimg.sh \
+    device/lge/g2-common/releasetools/dump_image.sh:system/bin/dump_image.sh
+
+# Needed by /system/bin/cnd
+PRODUCT_PACKAGES += \
+	libxml2
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.bt.bdaddr_path=/data/misc/bdaddr
