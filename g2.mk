@@ -63,7 +63,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/touch_dev.idc:system/usr/idc/touch_dev.idc
 
 # Prepatch to fix BT/WiFi bus lockups
-PRODUCT_COPY_FILES += device/lge/g2-common/bluetooth/bcm4335_prepatch.hcd:system/vendor/firmware/bcm4335_prepatch.hcd
+PRODUCT_COPY_FILES += \
+     device/lge/g2-common/bluetooth/bcm4335_prepatch.hcd:system/vendor/firmware/bcm4335_prepatch.hcd
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -120,7 +121,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.nfc.hce.xml:system/etc/permissions/android.hardware.nfc.hce.xml
 
 PRODUCT_PROPERTY_OVERRIDES += \
-        ro.sf.lcd_density=480 \
+    ro.sf.lcd_density=480 \
 	ro.opengles.version=196608 \
 	ro.loki_enabled=1
 
@@ -129,7 +130,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	persist.radio.apm_sim_not_pwdn=1 \
 	ro.telephony.call_ring.multiple=0 \
 	persist.radio.mode_pref_nv10=1 \
-        ro.telephony.ril_class=LgeLteRIL \
+    ro.telephony.ril_class=LgeLteRIL \
 	ro.telephony.ril.v3=qcomdsds
 
 PRODUCT_PROPERTY_OVERRIDES += persist.hwc.mdpcomp.enable=true
@@ -162,7 +163,7 @@ PRODUCT_PACKAGES += \
 	hwcomposer.msm8974 \
 	gralloc.msm8974 \
 	copybit.msm8974 \
-        memtrack.msm8974
+    memtrack.msm8974
 
 # Local wrapper for fixups
 PRODUCT_PACKAGES += \
@@ -180,7 +181,7 @@ PRODUCT_PACKAGES += \
 	libqcomvoiceprocessingdescriptors
 
 PRODUCT_PACKAGES += \
-        libmm-omxcore \
+    libmm-omxcore \
 	libdivxdrmdecrypt \
 	libOmxVdec \
 	libOmxVenc \
@@ -212,7 +213,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	media.aac_51_output_enabled=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
-        debug.egl.recordable.rgba8888=1
+    debug.egl.recordable.rgba8888=1
 
 # Sensors
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -241,13 +242,13 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 	persist.sys.usb.config=mtp
 
 PRODUCT_PACKAGES += \
-        lights.g2
+    lights.g2
 
 # This hw ships locked, work around it with loki
 PRODUCT_PACKAGES += \
-        loki.sh \
-        loki_patch \
-        loki_flash
+    loki.sh \
+    loki_patch \
+    loki_flash
 
 # QC Perf
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -255,3 +256,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 $(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk)
 $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/config/config-bcm.mk)
+
+## Omni-specific configs
+
+# OmniTorch
+PRODUCT_PACKAGES += \
+    OmniTorch

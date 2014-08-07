@@ -35,18 +35,23 @@ USE_OPENGL_RENDERER := true
 TARGET_USES_ION := true
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 HAVE_ADRENO_SOURCE:= false
+TARGET_DISPLAY_USE_RETIRE_FENCE := true
+TARGET_USES_C2D_COMPOSITION := true
+TARGET_USES_OVERLAY := true
 
 # Kernel
 BOARD_KERNEL_BASE     := 0x00000000
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=g2 user_debug=31 msm_rtb.filter=0x0 mdss_mdp.panel=1:dsi:0:qcom,mdss_dsi_g2_lgd_cmd
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=g2 user_debug=31 msm_rtb.filter=0x0 mdss_mdp.panel=1:dsi:0:qcom,mdss_dsi_g2_lgd_cmd  androidboot.selinux=permissive
 BOARD_MKBOOTIMG_ARGS  := --ramdisk_offset 0x05000000 --tags_offset 0x04800000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_SEPARATED_DT := true
 BOARD_CUSTOM_BOOTIMG_MK := device/lge/g2-common/releasetools/mkbootimg.mk
-TARGET_KERNEL_SOURCE := kernel/lge/4.4.2
+TARGET_KERNEL_SOURCE := kernel/lge/msm8974
 
 # Audio
 BOARD_USES_ALSA_AUDIO:= true
+TARGET_USES_QCOM_COMPRESSED_AUDIO := true
+BOARD_HAVE_LOW_LATENCY_AUDIO := true
 
 # Wifi
 WPA_SUPPLICANT_VERSION := VER_0_8_X
@@ -61,7 +66,9 @@ WIFI_DRIVER_FW_PATH_STA     := "/system/etc/firmware/fw_bcmdhd.bin"
 WIFI_DRIVER_FW_PATH_AP      := "/system/etc/firmware/fw_bcmdhd_apsta.bin"
 
 # Qcom
-TARGET_QCOM_DISPLAY_VARIANT := caf
+#TARGET_QCOM_DISPLAY_VARIANT := caf
+#TARGET_QCOM_AUDIO_VARIANT := caf
+TARGET_QCOM_MEDIA_VARIANT := caf
 BOARD_USES_QCOM_HARDWARE := true
 TARGET_USES_QCOM_BSP := true
 COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE -DQCOM_BSP
@@ -122,5 +129,7 @@ TARGET_NO_BOOTLOADER := true
 TARGET_RELEASETOOLS_EXTENSIONS := device/lge/g2-common/releasetools
 COMMON_GLOBAL_CFLAGS += -DBOARD_CHARGING_CMDLINE_NAME='"androidboot.mode"' -DBOARD_CHARGING_CMDLINE_VALUE='"chargerlogo"'
 COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
+BOARD_SUPPRESS_SECURE_ERASE := true
 
-
+# TWRP
+DEVICE_RESOLUTION := 1080x1920
