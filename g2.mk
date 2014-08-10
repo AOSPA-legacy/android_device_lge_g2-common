@@ -66,6 +66,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
      device/lge/g2-common/bluetooth/bcm4335_prepatch.hcd:system/vendor/firmware/bcm4335_prepatch.hcd
 
+#TWRP
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/twrp/twrp.fstab:recovery/root/etc/twrp.fstab \
+    $(LOCAL_PATH)/twrp/init.recovery.g2.rc:recovery/root/init.recovery.g2.rc
+
 # Permissions
 PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
