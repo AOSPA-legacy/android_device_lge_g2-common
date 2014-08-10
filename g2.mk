@@ -138,7 +138,17 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.ril_class=LgeLteRIL \
 	ro.telephony.ril.v3=qcomdsds
 
-PRODUCT_PROPERTY_OVERRIDES += persist.hwc.mdpcomp.enable=true
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.sf.hw=1 \
+    debug.egl.hw=1 \
+    debug.composition.type=dyn \
+    debug.enable.wl_log=1 \
+    persist.hwc.mdpcomp.enable=false \
+    debug.mdpcomp.logs=0 \
+    debug.qctwa.statusbar=1 \
+    debug.qctwa.preservebuf=1 \
+    debug.qc.hardware=true \
+    com.qc.hardware=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.hwui.texture_cache_size=72 \
@@ -170,9 +180,13 @@ PRODUCT_PACKAGES += \
 	copybit.msm8974 \
     memtrack.msm8974
 
-# Local wrapper for fixups
 PRODUCT_PACKAGES += \
-	camera.g2
+    libqomx_core \
+    libmmcamera_interface \
+    libmmjpeg_interface \
+    camera.g2 \
+    mm-jpeg-interface-test \
+    mm-qcamera-app
 
 # Audio
 PRODUCT_PACKAGES += \
