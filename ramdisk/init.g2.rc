@@ -164,10 +164,6 @@ on boot
     chown system system /sys/class/timed_output/vibrator/amp
     chmod 0660 /sys/class/timed_output/vibrator/amp
 
-    # vibrator
-    chown system system /sys/class/timed_output/vibrator/amp
-    chmod 0660 /sys/class/timed_output/vibrator/amp
-
 # lights perms
     chown system system /sys/class/leds/red/brightness
     chown system system /sys/class/leds/green/brightness
