@@ -71,6 +71,7 @@ PRODUCT_COPY_FILES += \
 
 # GPS configuration
 PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/sec_config:system/etc/sec_config \
     $(LOCAL_PATH)/gps.conf:system/etc/gps.conf
 
 PRODUCT_PACKAGES += \

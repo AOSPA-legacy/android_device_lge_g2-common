@@ -187,6 +187,7 @@ on post-fs-data
     #symlink /data/misc/wifi/wpa_supplicant /data/system/wpa_supplicant
 
     #Create directory used by sensor subsystem(dsps)
+    mkdir /data/system 0755 system system
     mkdir /data/system/sensors
     chmod 665 /data/system/sensors
     write /data/system/sensors/settings 1
@@ -385,7 +386,7 @@ service thermal-engine /system/bin/thermal-engine --time=20
    user root
    group root
 
-service irsc_util /system/bin/logwrapper /system/bin/irsc_util "/etc/sec_config"
+service irsc_util /system/bin/irsc_util "/etc/sec_config"
     class main
     user root
     oneshot
