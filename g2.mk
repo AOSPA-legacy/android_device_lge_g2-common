@@ -95,7 +95,22 @@ PRODUCT_PACKAGES += \
     VisualizationWallpapers \
     librs_jni
 
-# NFC packages
+PRODUCT_PACKAGES += \
+    nfc_nci.g2 \
+    NfcNci
+
+ifeq ($(filter ls980,$(TARGET_DEVICE)),)
+  PRODUCT_PACKAGES += \
+      nfc.default \
+      libnfc \
+      libnfc_jni \
+      Nfc
+else
+  PRODUCT_PACKAGES += \
+      nfc_nci.g2 \
+      NfcNci
+endif
+
 PRODUCT_PACKAGES += \
     Tag \
     com.android.nfc_extras
