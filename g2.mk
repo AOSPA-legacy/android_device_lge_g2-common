@@ -68,6 +68,16 @@ PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.audio.low_latency.xml:system/etc/permissions/android.hardware.audio.low_latency.xml \
 	frameworks/native/data/etc/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml
 
+ifeq ($(filter ls980 vs980,$(TARGET_DEVICE)),)
+  PRODUCT_COPY_FILES += \
+        frameworks/native/data/etc/android.hardware.telephony.cdma.xml:system/etc/permissions/android.hardware.telephony.cdma.xml
+else
+  PRODUCT_COPY_FILES += \
+        frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml
+  PRODUCT_PROPERTY_OVERRIDES += \
+        telephony.lteOnGsmDevice=1 \
+        ro.telephony.default_network=9
+endif
 
 # GPS configuration
 PRODUCT_COPY_FILES += \
